@@ -1,0 +1,16 @@
+{
+  "_checkout": "2022.6.3",
+  "_output_dir": "/Users/anaiden/src",
+  "_repo_dir": "/Users/anaiden/.cookiecutters/cookiecutter-hypermodern-python",
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Aleksei Naiden",
+  "copyright_year": "2023",
+  "development_status": "Development Status :: 4 - Beta",
+  "email": "r2dt@anaiden.ru",
+  "friendly_name": "R2DT API Client",
+  "github_user": "anayden",
+  "license": "MIT",
+  "package_name": "r2dt_client",
+  "project_name": "r2dt-client",
+  "version": "0.8.0"
+}
