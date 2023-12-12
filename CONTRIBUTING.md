@@ -111,5 +111,3 @@ This will allow a chance to talk it over with the owners and validate your appro
 [pull request]: https://github.com/anayden/r2dt-client/pulls
 
 <!-- github-only -->
-
-[code of conduct]: CODE_OF_CONDUCT.md

@@ -1,12 +1,23 @@
 """Command-line interface."""
-import click
+from pathlib import Path
+
+import typer
+from rich import print
 
 
-@click.command()
-@click.version_option()
-def main() -> None:
-    """R2DT API Client."""
+app = typer.Typer()
 
 
-if __name__ == "__main__":
-    main(prog_name="r2dt-client")  # pragma: no cover
+@app.command()
+def draw(filename: Path) -> None:
+    """Draw an mRNA sequence as an SVG image."""
+    print(f"drawing data from {filename}")
+
+
+@app.command()
+def run(filename: str) -> None:
+    """Run an mRNA sequence as an SVG image."""
+    print(f"running data from {filename}")
+
+
+main = app

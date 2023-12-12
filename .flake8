@@ -1,9 +1,12 @@
 [flake8]
-select = B,B9,C,D,DAR,E,F,N,RST,S,W
+select = B,B9,C,DAR,E,F,N,RST,S,W
 ignore = E203,E501,RST201,RST203,RST301,W503
+per-file-ignores =
+    # Ignore F401 (unused imports) in __init__.py files
+    */__init__.py: F401
+    tests/*:S101
 max-line-length = 80
 max-complexity = 10
 docstring-convention = google
-per-file-ignores = tests/*:S101
 rst-roles = class,const,func,meth,mod,ref
 rst-directives = deprecated
