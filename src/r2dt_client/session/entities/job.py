@@ -9,6 +9,8 @@ from r2dt_client.session.entities.job_status import JobStatus
 if TYPE_CHECKING:
     from r2dt_client.session import R2dtClient  # This import is only for type checking
 
+__all__ = ["R2dtJob"]
+
 
 class R2dtJob:
     job_id: str

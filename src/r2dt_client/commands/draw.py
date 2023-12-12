@@ -1,7 +1,7 @@
 import asyncio
 from time import time
 
-from IPython import get_ipython
+from IPython import get_ipython  # type: ignore
 from IPython.display import SVG
 from IPython.display import clear_output
 from IPython.display import display
@@ -16,7 +16,7 @@ async def draw_rna(email: str, sequence: str) -> None:
         ipython_result = str(get_ipython())  # type: ignore
         # If in Google Colab, import the required module
         if "google.colab" in ipython_result:
-            from google.colab import output
+            from google.colab import output  # type: ignore
 
             output.enable_custom_widget_manager()
     except NameError:
@@ -26,14 +26,14 @@ async def draw_rna(email: str, sequence: str) -> None:
         return
 
     start_time = time()  # Record the start time
-    display("Querying R2DT for the mRNA image... Please wait.")
+    display("Querying R2DT for the mRNA image... Please wait.")  # type: ignore
     async with R2dtClient(email) as client:
         job = await client.run(sequence)
         while not (await job.done):
             elapsed_time = time() - start_time  # Calculate elapsed time
-            clear_output(wait=True)
-            display(f"Waiting for R2DT... Elapsed time: {elapsed_time:.0f} seconds")
+            clear_output(wait=True)  # type: ignore
+            display(f"Waiting for R2DT... Elapsed time: {elapsed_time:.0f} seconds")  # type: ignore
             await asyncio.sleep(1)
 
-        clear_output(wait=True)  # Clear the spinner before displaying the result
-        display(SVG(await job.result(Format.svg)))
+        clear_output(wait=True)  # type: ignore
+        display(SVG(await job.result(Format.svg)))  # type: ignore
