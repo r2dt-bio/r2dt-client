@@ -7,7 +7,7 @@
 
 [![Read the documentation at https://r2dt-client.readthedocs.io/](https://img.shields.io/readthedocs/r2dt-client/latest.svg?label=Read%20the%20Docs)][read the docs]
 [![Tests](https://github.com/anayden/r2dt-client/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/anayden/r2dt-client/branch/main/graph/badge.svg)][codecov]
+[![Codecov](https://codecov.io/gh/anayden/r2dt-client/branch/master/graph/badge.svg)][codecov]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
@@ -68,6 +68,6 @@ This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter]
 
 <!-- github-only -->
 
-[license]: https://github.com/anayden/r2dt-client/blob/main/LICENSE
-[contributor guide]: https://github.com/anayden/r2dt-client/blob/main/CONTRIBUTING.md
+[license]: https://github.com/anayden/r2dt-client/blob/master/LICENSE
+[contributor guide]: https://github.com/anayden/r2dt-client/blob/master/CONTRIBUTING.md
 [command-line reference]: https://r2dt-client.readthedocs.io/en/latest/usage.html
