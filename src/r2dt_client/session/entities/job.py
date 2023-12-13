@@ -1,4 +1,3 @@
-from typing import TYPE_CHECKING
 from typing import Optional
 
 from r2dt_client.session.entities.exceptions import R2dtError
@@ -6,41 +5,40 @@ from r2dt_client.session.entities.format import Format
 from r2dt_client.session.entities.job_status import JobStatus
 
 
-if TYPE_CHECKING:
-    from r2dt_client.session import R2dtClient  # This import is only for type checking
-
 __all__ = ["R2dtJob"]
 
 
 class R2dtJob:
     job_id: str
     _status: JobStatus
-    r2dt_client: "R2dtClient"
+    email: str
     sequence: str
     results: dict[Format, str]
 
     def __init__(
         self,
-        client: "R2dtClient",
+        email: str,
         job_id: str,
         sequence: str,
         status: JobStatus = JobStatus.UNKNOWN,
         results: Optional[dict[Format, str]] = None,
     ):
-        self.r2dt_client = client
+        self.email = email
         self.job_id = job_id
         self.sequence = sequence
         self._status = status or JobStatus.UNKNOWN
         self.results = results or {}
 
     @property
-    async def done(self) -> bool:
-        return (await self.status).final
+    def done(self) -> bool:
+        return self.status.final
 
     @property
-    async def status(self) -> JobStatus:
+    def status(self) -> JobStatus:
         if not self._status.final:
-            self._status = await self.r2dt_client.status(self.job_id)
+            from r2dt_client.session import R2dtClient
+
+            self._status = R2dtClient(self.email).status(self.job_id)
         return self._status
 
     @status.setter
@@ -52,7 +50,7 @@ class R2dtJob:
             )
         self._status = status
 
-    async def result(self, format: Format) -> str:
+    def result(self, format: Format) -> str:
         if not self._status.final:
             raise R2dtError(
                 f"Cannot fetch result for unfinished job with id {self.job_id},"
@@ -60,7 +58,9 @@ class R2dtJob:
             )
 
         if format not in self.results:
-            self.results[format] = await self.r2dt_client.result(
+            from r2dt_client.session import R2dtClient
+
+            self.results[format] = R2dtClient(self.email).result(
                 self.job_id, self.sequence, format
             )
 
@@ -68,3 +68,5 @@ class R2dtJob:
 
     def __str__(self) -> str:
         return f"R2dtJob(job_id={self.job_id}, status={self.status})"
+
+    __repr__ = __str__
