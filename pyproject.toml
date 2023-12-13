@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "r2dt-client"
-version = "0.1.1"
+version = "0.1.2"
 description = "R2DT API Client"
 authors = ["Aleksei Naiden <r2dt@anaiden.ru>"]
 license = "MIT"
