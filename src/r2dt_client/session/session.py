@@ -57,7 +57,9 @@ class R2dtClient:
                 job_id = await response.text()
                 return R2dtJob(self, job_id, sequence)
             else:
-                raise Exception(f"Error submitting job: {response.status}")
+                raise Exception(
+                    f"Error submitting job:\n{response.status} {await response.text()}"
+                )
 
     async def status(self, job_id: str) -> JobStatus:
         if not self.session:

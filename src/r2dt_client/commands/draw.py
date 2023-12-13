@@ -10,6 +10,9 @@ from r2dt_client.session.entities.format import Format
 from r2dt_client.session.session import R2dtClient
 
 
+__all__ = ["draw_rna"]
+
+
 async def draw_rna(email: str, sequence: str) -> None:
     try:
         # This will only succeed in a Jupyter or Colab environment

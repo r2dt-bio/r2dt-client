@@ -1,6 +1,7 @@
 import hashlib
 from datetime import datetime
 from datetime import timezone
+from pathlib import Path
 from typing import Optional
 from typing import cast
 
@@ -10,11 +11,12 @@ from r2dt_client.session.entities.cache_item import CacheItem
 from r2dt_client.session.entities.format import Format
 
 
-CACHE_DIR = ".r2dt_cache"
+CACHE_DIR = Path("~/.r2dt_cache").absolute()
+CACHE_PATH = CACHE_DIR.as_posix()
 
 
 class JobCacheService:
-    def __init__(self, cache_dir: str = CACHE_DIR):
+    def __init__(self, cache_dir: str = CACHE_PATH):
         self.disk_cache = diskcache.Cache(cache_dir)
 
     def get(self, sequence: str) -> Optional[CacheItem]:
@@ -27,8 +29,7 @@ class JobCacheService:
 
     def put(self, sequence: str, job_id: str, results: dict[Format, str]) -> None:
         key = self._create_cache_key(sequence)
-        item = self.disk_cache[key]
-        if item:
+        if item := self.disk_cache.get(key):
             item.job_id = job_id
             item.results = item.results | results
             self.disk_cache[key] = item
