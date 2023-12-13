@@ -29,7 +29,7 @@ class R2dtClient:
 
         url = BASE_URL / "run"
         data = {"email": self.email, "sequence": sequence}
-        response = httpx.post(url, data=data)
+        response = httpx.post(str(url), data=data)
         if response.is_success:
             job_id = response.text
             return R2dtJob(self.email, job_id, sequence)
@@ -40,7 +40,7 @@ class R2dtClient:
 
     def status(self, job_id: str) -> JobStatus:
         url = BASE_URL / "status" / job_id
-        response = httpx.get(url)
+        response = httpx.get(str(url))
         if response.is_success:
             return JobStatus(response.text)
         else:
@@ -54,7 +54,7 @@ class R2dtClient:
         if cached_data and format in cached_data.results:
             return cached_data.results[format]
 
-        response = httpx.get(url)
+        response = httpx.get(str(url))
         response_text = response.text
         if not response.is_success:
             raise R2dtError(
