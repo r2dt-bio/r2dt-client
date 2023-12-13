@@ -29,7 +29,7 @@ async def draw_rna(email: str, sequence: str) -> None:
         return
 
     start_time = time()  # Record the start time
-    display("Querying R2DT for the mRNA image... Please wait.")  # type: ignore
+    display("Querying R2DT for the RNA image... Please wait.")  # type: ignore
     async with R2dtClient(email) as client:
         job = await client.run(sequence)
         while not (await job.done):
