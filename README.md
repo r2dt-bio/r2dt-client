@@ -27,7 +27,8 @@
 
 ## Requirements
 
-- TODO
+- Python 3.9+
+- [Poetry] 1.1.4+
 
 ## Installation
 
@@ -39,7 +40,23 @@ $ pip install r2dt-client
 
 ## Usage
 
-Please see the [Command-line Reference] for details.
+Example usage in the code:
+
+```python
+from time import sleep
+from r2dt_client import setup, submit, update_status_for, fetch_results_for, clear_job_cache
+
+setup(email="YOUR_EMAIL")
+
+job = submit(
+    ">S box leader))\nCTCTTATCGAGAGTTGGGCGAGGGATTTGGCCTTTTGACCCCAAAAGCAACCGACCGTAATTCCATTGTGAAATGGGGCGCATTTTTTTCGCGCCGAGACGCTGGTCTCTTAAGGCACGGTGCTAATTCCATTCAGATCTGATCTGAGAGATAAGAG")
+while not job.done:
+    update_status_for(job)
+    sleep(5)
+
+fetch_results_for(job)
+print(job.results['fasta'])
+```
 
 ## Contributing
 
