@@ -44,7 +44,7 @@ Example usage in the code:
 
 ```python
 from time import sleep
-from r2dt_client import setup, submit, update_status_for, fetch_results_for, clear_job_cache
+from r2dt_client import setup, submit, update_status_for, fetch_results_for
 
 setup(email="YOUR_EMAIL")
 
@@ -56,6 +56,18 @@ while not job.done:
 
 fetch_results_for(job)
 print(job.results['fasta'])
+```
+
+Using the widget via Jupyter Notebook:
+
+```jupyter
+!pip install r2dt_client[widget]
+
+from r2dt_client import setup, draw
+
+setup(email="YOUR_EMAIL")
+draw(
+    ">S box leader))\nCTCTTATCGAGAGTTGGGCGAGGGATTTGGCCTTTTGACCCCAAAAGCAACCGACCGTAATTCCATTGTGAAATGGGGCGCATTTTTTTCGCGCCGAGACGCTGGTCTCTTAAGGCACGGTGCTAATTCCATTCAGATCTGATCTGAGAGATAAGAG")
 ```
 
 ## Contributing
