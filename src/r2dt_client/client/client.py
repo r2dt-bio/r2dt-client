@@ -1,3 +1,5 @@
+from typing import Optional
+
 import httpx
 from yarl import URL
 
@@ -10,7 +12,7 @@ from r2dt_client.entities.job_status import JobStatus
 
 BASE_URL = URL("https://www.ebi.ac.uk/Tools/services/rest/r2dt")
 
-_email: str | None = None
+_email: Optional[str] = None
 _cache = JobCache()
 
 
@@ -24,7 +26,7 @@ def clear_job_cache() -> None:
 
 
 def submit(
-    sequence: str, email: str | None = None, skip_cache: bool = False
+    sequence: str, email: Optional[str] = None, skip_cache: bool = False
 ) -> R2dtJob:
     if not skip_cache:
         cached_result = _cache.get(sequence)

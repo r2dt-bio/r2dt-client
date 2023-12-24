@@ -3,9 +3,9 @@ import time
 
 
 try:
-    from IPython.display import clear_output
-    from IPython.display import display
-    from ipywidgets import ValueWidget
+    from IPython.display import clear_output  # type: ignore
+    from IPython.display import display  # type: ignore
+    from ipywidgets import ValueWidget  # type: ignore
 
     _HAS_IPYWIDGETS = True
 except ImportError:
