@@ -39,7 +39,7 @@ def _display_svg(svg_content):
 def draw(sequence: str) -> None:
     if not _HAS_IPYWIDGETS:
         print(
-            "This function is only available in Jupyter notebooks and "
+            "This function is only available in Jupyter Notebook and "
             "after installing the library with 'pip install "
             "r2dt_client[widgets]'\nConsider using standard API - submit, "
             "update_status_for, fetch_results_for - instead."

@@ -1,4 +1,4 @@
-name: Release
+name: Release Package
 
 on:
   push:
@@ -15,20 +15,10 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Set up PDM
+        uses: pdm-project/setup-pdm@v3
         with:
-          python-version: "3.9"
-
-      - name: Upgrade pip
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt pip
-          pip --version
-
-      - name: Install Poetry
-        run: |
-          pip install --constraint=.github/workflows/constraints.txt poetry
-          poetry --version
+          python-version: 3.9
 
       - name: Check if there is a parent commit
         id: check-parent-commit
@@ -40,19 +30,21 @@ jobs:
         if: steps.check-parent-commit.outputs.sha
         uses: salsify/action-detect-and-tag-new-version@v2.0.3
         with:
-          version-command: |
-            bash -o pipefail -c "poetry version | awk '{ print \$2 }'"
+          version-command: |-
+            pdm show --version
 
       - name: Bump version for developmental release
         if: "! steps.check-version.outputs.tag"
         run: |
-          poetry version patch &&
-          version=$(poetry version | awk '{ print $2 }') &&
-          poetry version $version.dev.$(date +%s)
+          pdm bump dev
+
+      - name: Install dependencies with PDM
+        run: |
+          pdm install
 
       - name: Build package
         run: |
-          poetry build --ansi
+          pdm build
 
       - name: Publish package on PyPI
         if: steps.check-version.outputs.tag

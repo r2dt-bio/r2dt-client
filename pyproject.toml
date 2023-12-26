@@ -1,85 +1,54 @@
-[tool.poetry]
+[project]
 name = "r2dt-client"
 version = "0.1.4"
 description = "R2DT API Client"
-authors = ["Aleksei Naiden <r2dt@anaiden.ru>"]
-license = "MIT"
+authors = [
+    { name = "Alexey Naiden", email = "r2dt@anaiden.ru" },
+]
+dependencies = [
+    "diskcache<6.0.0,>=5.6.3",
+    "httpx<1.0.0,>=0.26.0",
+    "yarl<2.0.0,>=1.9.4",
+]
+requires-python = ">=3.9,<4.0"
 readme = "README.md"
-homepage = "https://github.com/anayden/r2dt-client"
-repository = "https://github.com/anayden/r2dt-client"
-documentation = "https://r2dt-client.readthedocs.io"
 classifiers = [
     "Development Status :: 4 - Beta",
 ]
 
-[tool.poetry.urls]
+[project.license]
+text = "MIT"
+
+[project.urls]
 Changelog = "https://github.com/anayden/r2dt-client/releases"
+homepage = "https://github.com/anayden/r2dt-client"
+repository = "https://github.com/anayden/r2dt-client"
 
-[tool.poetry.dependencies]
-python = "^3.9"
-rich = "^13.7.0"
-diskcache = "^5.6.3"
-httpx = "^0.26.0"
-yarl = "^1.9.4"
-ipython = { version = "^8.18.0", optional = true }
-ipywidgets = { version = "^8.1.1", optional = true }
+[project.optional-dependencies]
+widgets = [
+    "ipython",
+    "ipywidgets",
+]
 
-[tool.poetry.extras]
-widgets = ["ipython", "ipywidget"]
+[tool.pdm]
+package-type = "library"
 
-[tool.poetry.group.dev.dependencies]
-jupyter = "^1.0.0"
-poetry-plugin-export = "^1.6.0"
-Pygments = ">=2.10.0"
-black = ">=21.10b0"
-coverage = { extras = ["toml"], version = ">=6.2" }
-darglint = ">=1.8.1"
-flake8 = ">=4.0.1"
-flake8-bandit = ">=2.1.2"
-flake8-bugbear = ">=21.9.2"
-flake8-docstrings = ">=1.6.0"
-flake8-rst-docstrings = ">=0.2.5"
-furo = ">=2021.11.12"
-isort = ">=5.10.1"
-mypy = ">=0.930"
-pep8-naming = ">=0.12.1"
-pre-commit = ">=2.16.0"
-pre-commit-hooks = ">=4.1.0"
-pytest = ">=6.2.5"
-pyupgrade = ">=2.29.1"
-safety = ">=1.10.3"
-sphinx = ">=4.3.2"
-sphinx-autobuild = ">=2021.3.14"
-sphinx-click = ">=3.0.2"
-typeguard = ">=2.13.3"
-xdoctest = { extras = ["colors"], version = ">=0.15.10" }
-myst-parser = { version = ">=0.16.1" }
+[tool.pdm.dev-dependencies]
+dev = [
+    "jupyter<2.0.0,>=1.0.0",
+]
+test = [
+    "pytest",
+]
 
-[tool.coverage.paths]
-source = ["src", "*/site-packages"]
-tests = ["tests", "*/tests"]
+[tool.pdm.scripts]
+test = "pytest"
 
-[tool.coverage.run]
-branch = true
-source = ["r2dt_client", "tests"]
-
-[tool.coverage.report]
-show_missing = true
-fail_under = 90
-
-[tool.isort]
-profile = "black"
-force_single_line = true
-lines_after_imports = 2
-
-[tool.mypy]
-strict = false
-warn_unreachable = true
-pretty = true
-show_column_numbers = true
-show_error_codes = true
-show_error_context = true
+[tool.pdm.build]
+includes = []
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"

@@ -5,10 +5,6 @@
 [![Python Version](https://img.shields.io/pypi/pyversions/r2dt-client)][python version]
 [![License](https://img.shields.io/pypi/l/r2dt-client)][license]
 
-[![Read the documentation at https://r2dt-client.readthedocs.io/](https://img.shields.io/readthedocs/r2dt-client/latest.svg?label=Read%20the%20Docs)][read the docs]
-[![Tests](https://github.com/anayden/r2dt-client/workflows/Tests/badge.svg)][tests]
-[![Codecov](https://codecov.io/gh/anayden/r2dt-client/branch/master/graph/badge.svg)][codecov]
-
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
@@ -28,7 +24,7 @@
 ## Requirements
 
 - Python 3.9+
-- [Poetry] 1.1.4+
+- [pdm] 2.0.0+
 
 ## Installation
 
@@ -84,19 +80,3 @@ _R2DT API Client_ is free and open source software.
 
 If you encounter any problems,
 please [file an issue] along with a detailed description.
-
-## Credits
-
-This project was generated from [@cjolowicz]'s [Hypermodern Python Cookiecutter] template.
-
-[@cjolowicz]: https://github.com/cjolowicz
-[pypi]: https://pypi.org/
-[hypermodern python cookiecutter]: https://github.com/cjolowicz/cookiecutter-hypermodern-python
-[file an issue]: https://github.com/anayden/r2dt-client/issues
-[pip]: https://pip.pypa.io/
-
-<!-- github-only -->
-
-[license]: https://github.com/anayden/r2dt-client/blob/master/LICENSE
-[contributor guide]: https://github.com/anayden/r2dt-client/blob/master/CONTRIBUTING.md
-[command-line reference]: https://r2dt-client.readthedocs.io/en/latest/usage.html
