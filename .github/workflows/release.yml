@@ -15,10 +15,15 @@ jobs:
         with:
           fetch-depth: 2
 
-      - name: Set up PDM
+      - name: Setup PDM
         uses: pdm-project/setup-pdm@v3
         with:
           python-version: 3.9
+          cache: true
+
+      - name: Setup PDM bump plugin
+        run: |
+          pdm self add pdm-bump
 
       - name: Check if there is a parent commit
         id: check-parent-commit
