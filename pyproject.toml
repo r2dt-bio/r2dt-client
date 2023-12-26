@@ -1,6 +1,6 @@
 [project]
 name = "r2dt-client"
-version = "0.1.7"
+version = "0.1.8"
 description = "R2DT API Client"
 authors = [
     { name = "Alexey Naiden", email = "r2dt@anaiden.ru" },
