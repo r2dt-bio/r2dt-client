@@ -27,14 +27,8 @@ jobs:
         run: |
           pdm self add pdm-bump
 
-      - name: Check if there is a parent commit
-        id: check-parent-commit
-        run: |
-          echo "name=sha::$(git rev-parse --verify --quiet HEAD^)" >> $GITHUB_OUTPUT
-
       - name: Detect and tag new version
         id: check-version
-        if: steps.check-parent-commit.outputs.sha
         uses: salsify/action-detect-and-tag-new-version@v2.0.3
         with:
           version-command: |-
