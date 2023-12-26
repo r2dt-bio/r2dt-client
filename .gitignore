@@ -11,3 +11,4 @@ __pycache__/
 .idea/
 .ipynb_checkpoints
 .r2dt_cache/
+.pdm-python
