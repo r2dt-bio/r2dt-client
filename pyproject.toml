@@ -9,6 +9,8 @@ dependencies = [
     "diskcache<6.0.0,>=5.6.3",
     "httpx<1.0.0,>=0.26.0",
     "yarl<2.0.0,>=1.9.4",
+    "ipython",
+    "ipywidgets",
 ]
 requires-python = ">=3.9,<4.0"
 readme = "README.md"
@@ -23,12 +25,6 @@ text = "MIT"
 Changelog = "https://github.com/anayden/r2dt-client/releases"
 homepage = "https://github.com/anayden/r2dt-client"
 repository = "https://github.com/anayden/r2dt-client"
-
-[project.optional-dependencies]
-widgets = [
-    "ipython",
-    "ipywidgets",
-]
 
 [tool.pdm]
 package-type = "library"

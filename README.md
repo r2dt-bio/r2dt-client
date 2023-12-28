@@ -57,7 +57,7 @@ print(job.results['fasta'])
 Using the widget via Jupyter Notebook:
 
 ```jupyter
-!pip install r2dt_client[widget]
+!pip install r2dt_client
 
 from r2dt_client import setup, draw
 
