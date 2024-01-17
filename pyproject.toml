@@ -27,7 +27,11 @@ homepage = "https://github.com/anayden/r2dt-client"
 repository = "https://github.com/anayden/r2dt-client"
 
 [tool.pdm]
-package-type = "library"
+distribution = "true"
+
+[tool.pdm.packages]
+include = ["src/r2dt_client"]
+packages = {include = ["r2dt_client"], from = "src"}
 
 [tool.pdm.dev-dependencies]
 dev = [
