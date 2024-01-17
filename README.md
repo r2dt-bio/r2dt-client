@@ -2,24 +2,20 @@
 
 [![PyPI](https://img.shields.io/pypi/v/r2dt-client.svg)][pypi_]
 [![Status](https://img.shields.io/pypi/status/r2dt-client.svg)][status]
-[![Python Version](https://img.shields.io/pypi/pyversions/r2dt-client)][python version]
+![Static Badge](https://img.shields.io/badge/Python_version-3.9%2B-blue)
+
 [![License](https://img.shields.io/pypi/l/r2dt-client)][license]
 
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
 [![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
 
 [pypi_]: https://pypi.org/project/r2dt-client/
-[status]: https://pypi.org/project/r2dt-client/
-[python version]: https://pypi.org/project/r2dt-client
-[read the docs]: https://r2dt-client.readthedocs.io/
-[tests]: https://github.com/anayden/r2dt-client/actions?workflow=Tests
-[codecov]: https://app.codecov.io/gh/anayden/r2dt-client
-[pre-commit]: https://github.com/pre-commit/pre-commit
-[black]: https://github.com/psf/black
+[CI]: https://github.com/anayden/r2dt-client/actions
 
 ## Features
 
-- TODO
+- Access to the [R2DT] API via Python
+- Display R2DT widget in Jupyter Notebook
 
 ## Requirements
 
@@ -65,11 +61,6 @@ setup(email="YOUR_EMAIL")
 draw(
     ">S box leader))\nCTCTTATCGAGAGTTGGGCGAGGGATTTGGCCTTTTGACCCCAAAAGCAACCGACCGTAATTCCATTGTGAAATGGGGCGCATTTTTTTCGCGCCGAGACGCTGGTCTCTTAAGGCACGGTGCTAATTCCATTCAGATCTGATCTGAGAGATAAGAG")
 ```
-
-## Contributing
-
-Contributions are very welcome.
-To learn more, see the [Contributor Guide].
 
 ## License
 

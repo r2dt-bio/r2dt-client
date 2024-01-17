@@ -1,4 +1,3 @@
-import threading
 import time
 
 from IPython.display import clear_output  # type: ignore
@@ -8,6 +7,7 @@ from ipywidgets import ValueWidget  # type: ignore
 from r2dt_client import fetch_results_for
 from r2dt_client import submit
 from r2dt_client import update_status_for
+from r2dt_client.entities import Format
 
 
 def _display_spinner() -> ValueWidget:
@@ -36,17 +36,12 @@ def draw(sequence: str) -> None:
     spinner = _display_spinner()
     start_time = time.time()
 
-    def job_monitor():
-        while not job.done:
-            time.sleep(2)
-            update_status_for(job)
-            elapsed_time = int(time.time() - start_time)
-            _update_spinner(spinner, elapsed_time)
-        fetch_results_for(job)
-        svg_content = job.results["svg"]
-        clear_output(wait=True)  # Clear the spinner
-        _display_svg(svg_content)
-
-    # Run the monitoring in a separate thread, so it doesn't block the notebook
-    thread = threading.Thread(target=job_monitor)
-    thread.start()
+    while not job.done:
+        time.sleep(2)
+        update_status_for(job)
+        elapsed_time = int(time.time() - start_time)
+        _update_spinner(spinner, elapsed_time)
+    fetch_results_for(job)
+    svg_content = job.results[Format.svg]
+    clear_output(wait=True)  # Clear the spinner
+    _display_svg(svg_content)
