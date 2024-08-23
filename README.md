@@ -4,7 +4,7 @@
 ![Status](https://img.shields.io/pypi/status/r2dt-client.svg)
 ![Static Badge](https://img.shields.io/badge/Python_version-3.9%2B-blue)
 
-![License](https://img.shields.io/pypi/l/r2dt-client)
+![GitHub License](https://img.shields.io/github/license/anayden/r2dt-client)
 ![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
 ![Black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
