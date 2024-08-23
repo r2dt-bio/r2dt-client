@@ -19,7 +19,7 @@ classifiers = [
 ]
 
 [project.license]
-text = "MIT"
+text = "Apache-2.0"
 
 [project.urls]
 Changelog = "https://github.com/anayden/r2dt-client/releases"

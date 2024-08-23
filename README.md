@@ -1,26 +1,25 @@
 # R2DT API Client
 
 [![PyPI](https://img.shields.io/pypi/v/r2dt-client.svg)][pypi_]
-[![Status](https://img.shields.io/pypi/status/r2dt-client.svg)][status]
+![Status](https://img.shields.io/pypi/status/r2dt-client.svg)
 ![Static Badge](https://img.shields.io/badge/Python_version-3.9%2B-blue)
 
-[![License](https://img.shields.io/pypi/l/r2dt-client)][license]
-
-[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)][pre-commit]
-[![Black](https://img.shields.io/badge/code%20style-black-000000.svg)][black]
+![License](https://img.shields.io/pypi/l/r2dt-client)
+![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)
+![Black](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 [pypi_]: https://pypi.org/project/r2dt-client/
 [CI]: https://github.com/anayden/r2dt-client/actions
 
 ## Features
 
-- Access to the [R2DT] API via Python
+- Access to the [R2DT](https://r2dt.bio) API via Python
 - Display R2DT widget in Jupyter Notebook
 
 ## Requirements
 
 - Python 3.9+
-- [pdm] 2.0.0+
+- pdm 2.0.0+
 
 ## Installation
 
@@ -64,10 +63,10 @@ draw(
 
 ## License
 
-Distributed under the terms of the [MIT license][license],
+Distributed under the terms of the Apache 2.0,
 _R2DT API Client_ is free and open source software.
 
 ## Issues
 
 If you encounter any problems,
-please [file an issue] along with a detailed description.
+please file an issue along with a detailed description.
